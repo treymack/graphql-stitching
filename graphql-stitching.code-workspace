@@ -1,0 +1,17 @@
+{
+	"folders": [
+		// {
+		// 	"path": "."
+		// },
+		{
+			"path": "./HotChocolateV12.Musicians.Gql"
+		},
+		{
+			"path": "./HotChocolateV12.Stitching.Gateway.Gql"
+		},
+		{
+			"path": "./HotChocolateV12.Federation.Gateway.Gql"
+		}
+	],
+	"settings": {}
+}
