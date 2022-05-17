@@ -1,0 +1,14 @@
+---
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: hc-v12-musicians-service
+spec:
+  selector:
+    app: hc-v12-musicians
+  ports:
+    - name: http
+      port: 5101
+      targetPort: 5101
+  type: NodePort

@@ -1,0 +1,31 @@
+---
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hc-v12-musicians-deployment
+  labels:
+    app: hc-v12-musicians
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hc-v12-musicians
+  template:
+    metadata:
+      labels:
+        app: hc-v12-musicians
+    spec:
+      containers:
+        - name: hc-v12-musicians
+          image: hc-v12-musicians:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5101
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
