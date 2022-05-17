@@ -1,0 +1,31 @@
+---
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hc-v12-bands-deployment
+  labels:
+    app: hc-v12-bands
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hc-v12-bands
+  template:
+    metadata:
+      labels:
+        app: hc-v12-bands
+    spec:
+      containers:
+        - name: hc-v12-bands
+          image: hc-v12-bands:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5102
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"

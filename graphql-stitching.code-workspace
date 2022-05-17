@@ -7,6 +7,9 @@
 			"path": "./HotChocolateV12.Musicians.Gql"
 		},
 		{
+			"path": "./HotChocolateV12.Bands.Gql"
+		},
+		{
 			"path": "./HotChocolateV12.Stitching.Gateway.Gql"
 		},
 		{
