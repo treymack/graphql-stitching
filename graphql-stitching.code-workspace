@@ -21,10 +21,11 @@
 			"configurations": [],
 			"compounds": [
 				{
-					"name": "everything",
+					"name": "compound-hc-v12-stitching",
 					"configurations": [
-						"hc-v12-bands-launch",
 						"hc-v12-musicians-launch",
+						"hc-v12-bands-launch",
+						"hc-v12-stitching-gateway-launch",
 					]
 				}
 			]
