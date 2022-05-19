@@ -16,5 +16,18 @@
 			"path": "./HotChocolateV12.Federation.Gateway.Gql"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"launch": {
+			"configurations": [],
+			"compounds": [
+				{
+					"name": "everything",
+					"configurations": [
+						"hc-v12-bands-launch",
+						"hc-v12-musicians-launch",
+					]
+				}
+			]
+		}
+	}
 }
