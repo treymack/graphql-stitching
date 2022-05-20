@@ -4,7 +4,9 @@ builder.Services.AddRepositories();
 
 builder.Services
     .AddGraphQLServer()
-    .AddQueryType<Query>();
+    .AddQueryType<Query>()
+    // .AddGlobalObjectIdentification()
+    ;
 
 var app = builder.Build();
 

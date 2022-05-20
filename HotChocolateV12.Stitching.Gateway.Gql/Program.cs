@@ -10,6 +10,8 @@ builder.Services
     // .AddQueryType<Query>();
     .AddRemoteSchema(WellKnownSchemaNames.Musicians)
     .AddRemoteSchema(WellKnownSchemaNames.Bands)
+    // .AddQueryFieldToMutationPayloads()
+    // .AddGlobalObjectIdentification()
     ;
 
 var app = builder.Build();

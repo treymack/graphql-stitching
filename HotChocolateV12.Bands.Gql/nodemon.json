@@ -1,0 +1,11 @@
+{
+    "ext": "cs,csproj,json",
+    "ignore": [
+        "bin/*",
+        "obj/*"
+    ],
+    "env": {
+        "ASPNETCORE_URLS": "http://localhost:5102"
+    },
+    "exec": "dotnet run --project ."
+}
