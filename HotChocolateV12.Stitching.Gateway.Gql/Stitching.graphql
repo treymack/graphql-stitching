@@ -1,0 +1,8 @@
+enum Trey {
+    MACK
+    ATTACK
+}
+
+extend type Musician {
+    bands: [Band!]! @delegate(schema: "bands", path: "bands")
+}

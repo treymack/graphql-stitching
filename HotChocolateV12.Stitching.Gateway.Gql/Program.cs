@@ -12,6 +12,7 @@ builder.Services
     .AddRemoteSchema(WellKnownSchemaNames.Bands)
     // .AddQueryFieldToMutationPayloads()
     // .AddGlobalObjectIdentification()
+    .AddTypeExtensionsFromFile("./Stitching.graphql")
     ;
 
 var app = builder.Build();
