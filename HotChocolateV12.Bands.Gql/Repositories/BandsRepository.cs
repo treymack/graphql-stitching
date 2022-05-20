@@ -5,6 +5,7 @@ namespace HotChocolateV12.Bands.Gql.Repositories;
 public interface IBandsRepository
 {
     Task<IQueryable<Band>> GetBands();
+    Task<Band?> GetBand(string key);
 }
 
 public class BandsRepository : IBandsRepository
@@ -15,10 +16,15 @@ public class BandsRepository : IBandsRepository
             Band.Create("Dave Matthews Band", Genre.Alternative_Indie, "https://davematthewsband.com"),
         };
 
+    public async Task<Band?> GetBand(string key)
+    {
+        await Task.Delay(200);
+        return bands.Where(x => x.Key == key).FirstOrDefault();
+    }
+
     public async Task<IQueryable<Band>> GetBands()
     {
         await Task.Delay(200);
-
         return bands.AsQueryable();
     }
 }
