@@ -11,4 +11,9 @@ public class Query
     {
         return musicianRepository.AllMusicians();
     }
+
+    public Task<IEnumerable<Musician>> GetMusiciansByBandKeyAsync(
+        [Service] IMusicianRepository musicianRepository,
+        [ID] string bandKey
+    ) => musicianRepository.GetMusiciansByBandKeyAsync(bandKey);
 }

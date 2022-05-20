@@ -1,3 +1,7 @@
 extend type Musician {
     band: Band @delegate(schema: "bands", path: "band(key: $fields:bandKey)")
 }
+
+extend type Band {
+    musicians: [Musician!]! @delegate(schema: "musicians", path: "musiciansByBandKey(bandKey: $fields:key)")
+}
