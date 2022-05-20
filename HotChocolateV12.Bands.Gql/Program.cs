@@ -1,4 +1,8 @@
+using HotChocolateV12.Musicians.Gql;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddRepositories();
 
 builder.Services
     .AddGraphQLServer()
