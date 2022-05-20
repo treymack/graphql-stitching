@@ -13,10 +13,7 @@ var config = builder.Services.BuildServiceProvider()
     .GetService<IOptions<Config>>();
 
 builder.Services
-    .AddGraphQLServer()
-    .AddQueryType<Query>()
-    // .AddGlobalObjectIdentification()
-    ;
+    .AddGraphQLDomainService(config!.Value);
 
 var app = builder.Build();
 
