@@ -1,6 +1,16 @@
+using System.Text.Json;
+
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRepositories();
+builder.Services
+    .AddRepositories()
+    .Configure<Config>(builder.Configuration.GetSection(nameof(Config)))
+    ;
+
+var config = builder.Services.BuildServiceProvider()
+    .GetService<IOptions<Config>>();
 
 builder.Services
     .AddGraphQLServer()
