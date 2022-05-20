@@ -1,0 +1,9 @@
+# enum Yo {
+#     YES
+#     NO
+# }
+
+extend type Band {
+    musicians: [Musician!]! @delegate(path: "musiciansByBandKey(bandKey: $fields:key)")
+}
+

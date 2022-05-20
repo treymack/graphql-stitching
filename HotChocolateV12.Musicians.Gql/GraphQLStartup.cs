@@ -33,7 +33,12 @@ public static class GraphQLStartup
         services
             .AddGraphQLServer()
             .AddQueryType<Query>()
-            // .AddGlobalObjectIdentification()
+            .InitializeOnStartup()
+            .PublishSchemaDefinition(c =>
+            {
+                c.SetName("musicians");
+                c.AddTypeExtensionsFromFile("./Stitching.graphql");
+            })
             ;
 
         return services;

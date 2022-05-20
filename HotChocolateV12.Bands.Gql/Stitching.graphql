@@ -1,0 +1,7 @@
+# extend enum Yo {
+#     FILE_NOT_FOUND
+# }
+
+extend type Musician {
+    band: Band @delegate(path: "band(key: $fields:bandKey)")
+}

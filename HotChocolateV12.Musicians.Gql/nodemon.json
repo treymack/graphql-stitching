@@ -1,5 +1,5 @@
 {
-    "ext": "cs,csproj,json",
+    "ext": "cs,csproj,json,graphql",
     "ignore": [
         "bin/*",
         "obj/*"
