@@ -10,8 +10,8 @@ public static class GraphQLStartup
         {
             GraphQLSupergraphMode.HC_V12_SCHEMA_STITCHING =>
                 AddHCV12SchemaStitchingDomainService(services),
-            GraphQLSupergraphMode.HC_V12_FEDERATION_VIA_POLLING =>
-                AddHCV12PollingFederationDomainService(services),
+            GraphQLSupergraphMode.HC_V12_FEDERATION_VIA_PULL =>
+                AddHCV12PullFederationDomainService(services),
             GraphQLSupergraphMode.HC_V12_FEDERATION_VIA_REDIS =>
                 AddHCV12RedisFederationDomainService(services),
             _ => throw new NotImplementedException(),
@@ -28,7 +28,7 @@ public static class GraphQLStartup
         return services;
     }
 
-    private static IServiceCollection AddHCV12PollingFederationDomainService(IServiceCollection services)
+    private static IServiceCollection AddHCV12PullFederationDomainService(IServiceCollection services)
     {
         services
             .AddGraphQLServer()

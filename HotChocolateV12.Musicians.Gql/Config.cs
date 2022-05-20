@@ -7,7 +7,7 @@ public class Config
     public enum GraphQLSupergraphMode
     {
         HC_V12_SCHEMA_STITCHING,
-        HC_V12_FEDERATION_VIA_POLLING,
+        HC_V12_FEDERATION_VIA_PULL,
         HC_V12_FEDERATION_VIA_REDIS,
     }
 }
