@@ -1,8 +1,3 @@
-enum Trey {
-    MACK
-    ATTACK
-}
-
 extend type Musician {
-    bands: [Band!]! @delegate(schema: "bands", path: "bands")
+    band: Band @delegate(schema: "bands", path: "band(key: $fields:bandKey)")
 }
