@@ -34,7 +34,13 @@ public static class GraphQLStartup
 
     private static IServiceCollection AddHCV12PollingFederationGatewayService(IServiceCollection services)
     {
-        throw new NotImplementedException();
+        services
+            .AddGraphQLServer()
+            .AddRemoteSchema(WellKnownSchemaNames.Musicians)
+            .AddRemoteSchema(WellKnownSchemaNames.Bands)
+            ;
+
+        return services;
     }
 
     private static IServiceCollection AddHCV12RedisFederationGatewayService(IServiceCollection services)

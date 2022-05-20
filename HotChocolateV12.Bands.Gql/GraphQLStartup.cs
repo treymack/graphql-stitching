@@ -30,7 +30,13 @@ public static class GraphQLStartup
 
     private static IServiceCollection AddHCV12PollingFederationDomainService(IServiceCollection services)
     {
-        throw new NotImplementedException();
+        services
+            .AddGraphQLServer()
+            .AddQueryType<Query>()
+            // .AddGlobalObjectIdentification()
+            ;
+
+        return services;
     }
 
     private static IServiceCollection AddHCV12RedisFederationDomainService(IServiceCollection services)
