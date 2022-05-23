@@ -1,3 +1,5 @@
+using StackExchange.Redis;
+
 using static HotChocolateV12.Musicians.Gql.Config;
 
 namespace HotChocolateV12.Musicians.Gql;
@@ -46,6 +48,19 @@ public static class GraphQLStartup
 
     private static IServiceCollection AddHCV12RedisFederationDomainService(IServiceCollection services)
     {
-        throw new NotImplementedException();
+        services
+            .AddSingleton(ConnectionMultiplexer.Connect("localhost"))
+            .AddGraphQLServer()
+            .AddQueryType<Query>()
+            .InitializeOnStartup()
+            .PublishSchemaDefinition(c =>
+            {
+                c.SetName("musicians");
+                c.AddTypeExtensionsFromFile("./Stitching.graphql");
+                c.PublishToRedis("SupergraphDemo", sp => sp.GetRequiredService<ConnectionMultiplexer>());
+            })
+            ;
+
+        return services;
     }
 }

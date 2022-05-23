@@ -1,3 +1,4 @@
+using StackExchange.Redis;
 using static HotChocolateV12.Stitching.Gateway.Gql.Config;
 
 namespace HotChocolateV12.Stitching.Gateway.Gql;
@@ -45,6 +46,12 @@ public static class GraphQLStartup
 
     private static IServiceCollection AddHCV12RedisFederationGatewayService(IServiceCollection services)
     {
-        throw new NotImplementedException();
+        services
+            .AddSingleton(ConnectionMultiplexer.Connect("localhost"))
+            .AddGraphQLServer()
+            .AddRemoteSchemasFromRedis("SupergraphDemo", sp => sp.GetRequiredService<ConnectionMultiplexer>())
+            ;
+
+        return services;
     }
 }
